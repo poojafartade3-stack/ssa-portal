@@ -1,0 +1,146 @@
+.honeycomb-section {
+  display: grid;
+  grid-template-columns: minmax(400px, 600px) 1fr;
+  gap: 40px;
+  padding: 20px;
+  align-items: center;
+  justify-items: center;
+  background: linear-gradient(to bottom, #F5F7FA 0%, #E4E7EB 100%);
+  /* optional: add smooth transition on hover */
+  transition: background 0.3s ease;  /* light cream */
+
+}
+
+.honeycomb-container {
+  width: 100%;
+  height: auto;
+}
+
+.honeycomb-container svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.honeycomb-container polygon {
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));
+}
+
+.info-container {
+  padding: 0;
+  max-width: 500px;
+  text-align: center;
+}
+
+.info-container h2 {
+  margin-top: 0;
+  text-align: left;
+}
+
+.info-container p {
+  line-height: 2.3;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: justify;       /* distributes text evenly */
+  text-justify: inter-word;  /* ensures spaces adjust between words */
+  margin: 10px 0;
+  color: #333;
+}
+
+.faculty-text {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 1s ease-out forwards;
+}
+
+/* Keyframes for sliding effect */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Shadow on text hover */
+.faculty-text:hover {
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+@media (max-width: 900px) {
+  .honeycomb-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .info-container h2{
+    text-align: center;
+  }
+  .info-container p {
+    text-align: left;   /* easier to read on mobile */
+    font-size: 14px;    /* slightly smaller for mobile */
+    line-height: 1.6;
+    text-justify: inter-word;
+  }
+}
+
+@media (max-width: 400px) {
+  .info-container h2 {
+    font-size: 18px;
+  }
+
+  .info-container p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .honeycomb-container {
+    max-width: 90%;
+  }
+}
+
+.faculty-btn {
+  display: inline-block;
+  padding: 8px 20px;   /* smaller size */
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #ff9800;
+  border: none;
+  border-radius: 6px; /* keep square-like with slight rounding */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: shake 2s infinite; /* apply shake */
+}
+
+/* Arrow before text */
+.faculty-btn::before {
+  content: "➜";  /* arrow symbol */
+  margin-right: 6px;
+  font-size: 16px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.faculty-btn:hover {
+  background: #e68900;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  transform: scale(1.03);
+}
+
+.faculty-btn:hover::before {
+  transform: translateX(3px);
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}

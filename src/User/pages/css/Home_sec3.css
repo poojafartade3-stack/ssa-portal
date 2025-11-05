@@ -1,0 +1,95 @@
+.delivery-section {
+  padding: 50px 20px;
+  /* max-width: 100%; */
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #F5F7FA 0%, #E4E7EB 100%);
+  /* optional: add smooth transition on hover */
+  transition: background 0.3s ease;
+}
+
+.delivery-heading h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: #333;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.custom-dropdown {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dropdown-title {
+  padding: 15px 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.dropdown-title:hover {
+  background: #eee;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Open state with scroll */
+.dropdown-content.open {
+  max-height: 250px; /* adjust height as needed */
+  padding: 15px 20px;
+  overflow-y: auto;
+}
+
+/* Scrollbar styling */
+.dropdown-content.open::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-content.open::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 3px;
+}
+
+.dropdown-content.open::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 600px) {
+  .dropdown-content.open {
+    max-height: 40vh; /* height relative to screen */
+  }
+  .delivery-heading h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333;
+}
+}

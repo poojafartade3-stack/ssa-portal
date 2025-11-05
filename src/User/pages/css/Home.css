@@ -1,0 +1,202 @@
+/* ----------------- Hero Section ----------------- */
+.hero-section {
+  background: linear-gradient(to right, #00152e, #01183a);
+  transition: background 0.3s ease;
+  padding: 40px 20px;
+}
+
+.hero-title {
+  color: #ffff;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.hero-subtext {
+  font-size: 18px;
+  color: #ffff;
+  max-width: 500px;
+  margin: 15px auto 15px 0;
+  line-height: 1.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* ----------------- Quote Animation ----------------- */
+@keyframes fadeInQuote {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-quote {
+  animation: fadeInQuote 1s ease-in-out;
+}
+
+/* ----------------- Left Content Animation ----------------- */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.left-content-animate {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+/* ----------------- Image Wrapper ----------------- */
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  margin: 0 auto;
+  overflow: hidden; /* clip images at section edges */
+}
+
+/* ----------------- Images ----------------- */
+.hero-banner {
+  position: absolute;
+  top: 0;
+  left: -10%; /* start slightly off for full slide */
+  width: 120%; /* make image wider than container */
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateX(0) scale(1);
+  transition: transform 2.5s ease-in-out, opacity 2.5s ease-in-out;
+  z-index: 0;
+}
+
+.hero-banner.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 2;
+}
+
+.hero-banner.previous {
+  opacity: 0;
+  transform: translateX(100%) scale(1.05); /* slides fully to end of section */
+  z-index: 1;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 25px 15px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtext {
+    font-size: 14px;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .hero-image-wrapper {
+    height: 160px;
+  }
+}
+
+/* Default layout (desktop) */
+.honeycomb-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 30px 20px;
+  align-items: center;
+  min-height: 50vh;
+  background-color: #eaf3ff; /* just for debug */
+}
+
+/* On small screens stack vertically */
+@media (max-width: 768px) {
+  .honeycomb-section {
+    grid-template-columns: 1fr;   /* stack vertically */
+    text-align: center;
+    min-height: auto;
+    justify-items: center;        /* ⬅️ centers grid content horizontally */
+  }
+
+  .honeycomb-container {
+    display: flex;
+    justify-content: center;      /* ⬅️ centers SVG inside */
+    align-items: center;
+    margin: 0 auto;
+    max-width: 300px;             /* adjust honeycomb size */
+    width: 100%;
+  }
+
+  .honeycomb-container svg {
+    display: block;
+    margin: 0 auto;               /* ⬅️ extra safety for centering */
+  }
+}
+
+svg {
+  width: 100%;
+  height: auto;
+  max-height: 600px; /* optional, prevents it from overflowing too much */
+}
+
+polygon {
+  stroke: #333;
+  stroke-width: 2;
+}
+
+.info-container {
+  padding: 0; /* remove extra padding */
+  max-width: 500px;
+}
+
+.info-container h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: left;
+}
+
+.info-container p {
+  line-height: 1.5;
+  color: #555;
+  text-align: left;
+  margin: 5px 0;
+}
+
+@media (max-width: 900px) {
+  .honeycomb-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .info-container h2,
+  .info-container p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .info-container h2 {
+    font-size: 18px;
+  }
+
+  .info-container p {
+    font-size: 14px;
+  }
+
+  .honeycomb-container {
+    max-width: 90%; /* scales down on mobile */
+  }
+}

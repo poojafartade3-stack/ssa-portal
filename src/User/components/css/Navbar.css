@@ -1,0 +1,59 @@
+/* Navbar brand */
+.navbar-brand-text {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Make navbar sticky */
+.navbar {
+  position: fixed;   /* fix navbar at top */
+  top: 0;            /* align to top */
+  left: 0;
+  width: 100%;       /* full width */
+  z-index: 10000;    /* above other content */
+}
+
+/* Right-side half-screen dropdown for small screens */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 56px;       /* below navbar */
+    right: -50%;     /* hidden initially */
+    width: 50%;      /* half-screen */
+    height: auto;
+    background-color: #002147;
+    z-index: 9999;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+
+  .navbar-collapse.show {
+    right: 0;       /* slide in */
+    opacity: 1;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 12px 20px;
+    color: #fff !important;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: #0B2A4A;
+  }
+}
+
+/* Add top margin to content so it doesn't hide under fixed navbar */
+body {
+  padding-top: 56px;  /* same height as navbar */
+}
